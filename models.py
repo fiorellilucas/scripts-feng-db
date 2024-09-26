@@ -5,8 +5,12 @@
 # Peewee version: 3.17.6
 
 from peewee import *
+from dotenv import load_dotenv
+import os
 
-database = PostgresqlDatabase('feng_db', **{'user': 'postgres', 'password': 'Fiorelli2001@@!!'})
+load_dotenv()
+
+database = PostgresqlDatabase('feng_db', **{'user': 'postgres', 'password': os.environ["SENHA_POSTGRES"]})
 
 class UnknownField(object):
     def __init__(self, *_, **__): pass
